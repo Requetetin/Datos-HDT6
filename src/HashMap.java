@@ -4,6 +4,8 @@
  * Hoja de trabajo 6
  */
 
+import java.util.*
+
 public class HashMap<K,V> extends AMap<K,V>{
 
 }

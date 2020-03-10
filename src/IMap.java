@@ -4,6 +4,8 @@
  * Hoja de trabajo 6
  */
 
+import java.util.*
+
 interface IMap<K,V>{
 
 	/*

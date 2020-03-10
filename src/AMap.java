@@ -4,6 +4,8 @@
  * Hoja de trabajo 6
  */
 
+import java.util.*
+
 public abstract class AMap<K,V> implements IMap<K,V>{
 
 	public boolean isEmpty(){
