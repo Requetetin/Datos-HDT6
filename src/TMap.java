@@ -6,12 +6,12 @@
 
 import java.util.*;
 
-public class LinkedHashMap<K,V> extends AMap<K,V>{
+public class TMap<K,V> extends AMap<K,V>{
 
-	protected LinkedHashMap<K,V> map;
+	protected IMap<K,V> map;
 
-	public LinkedHashMap(){
-		map = new LinkedHashMap<K,V>();
+	public TMap(){
+		map = new TMap<K,V>();
 	}
 
 	public void clear(){

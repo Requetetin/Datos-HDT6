@@ -6,12 +6,12 @@
 
 import java.util.*;
 
-public class TreeMap<K,V> extends AMap<K,V>{
+public class LHMap<K,V> extends AMap<K,V>{
 
-	protected TreeMap<K,V> map;
+	protected IMap<K,V> map;
 
-	public TreeMap(){
-		map = new TreeMap<K,V>();
+	public LHMap(){
+		map = new LHMap<K,V>();
 	}
 
 	public void clear(){

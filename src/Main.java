@@ -42,55 +42,57 @@ public class Main{
                     }else if(option == 4){
                         exit = false;
                     }else{
-                        IMap<String, String> original = fact.getType(option);
-                        IMap<String, String> colection = fact.getType(option);
+                        while(exit){
+                            System.out.println("MENU:");
+                            System.out.println("________________________________________________________--");
+                            System.out.println("1. Agregar una carta a la coleccion");
+                            System.out.println("2. Mostrar el tipo de una carta específica en la coleccion");
+                            System.out.println("3. Mostrar el nombre, tipo y cantidad de cada cartas en la coleccion");
+                            System.out.println("4. Mostrar el nombre, tipo y cantidad de cada cartas que tiene en su colección, ordenadas por tipo.");
+                            System.out.println("5. Mostrar el nombre y tipo de todas las cartas existentes.");
+                            System.out.println("6. Mostrar el nombre y tipo de todas las cartas existentes, ordenadas por tipo.");
+                            System.out.println("________________________________________________________--");
+                            System.out.println("Seleccione una opcion:");
+                            int opt = scan.nextInt();
+
+                            cardNames = file.ReadName();
+                            cardType = file.ReadType();
+
+                            if (opt == 1) {
+                                for(int i=0; i<cardNames.size();i++){
+                                    map.put(cardNames.get(i),cardType.get(i));
+                                }
+                                while(valid == false){
+                                    System.out.println("");
+                                    System.out.println("Ingrese el nombre de la carta que desea agregar: ");
+                                    String name = scan.nextLine();
+
+                                    System.out.println("");
+                                    System.out.println("Ingrese el tipo de la carta que desea agregar: ");
+                                    type = scan.nextLine();
+                                    if(map.containsValue(type)){
+                                        map.put(name,type);
+                                        iterator = map.keySet().iterator();
+                                        while(iterator.hasNext()){
+                                            String key = iterator.next();
+                                            System.out.println("Nombre Carta: (" + key + ") -> Tipo: (" + map.get(key)+")");
+                                        }
+                                        System.out.println("\n-Se ha agregado con exito");
+                                        valid = true;
+                                    }else{
+                                        System.out.println("-Lo siento... El tipo que desea agregar no exite en el juego...");
+                                        continue;
+                                    }
+                                }
+                            }
+                        }
+                        
                     }
                 }catch(Exception e){
                     System.out.println("\n\nLa opcion seleccionada no es valida\n\n");
                 }
             }
-            System.out.println("MENU:");
-            System.out.println("________________________________________________________--");
-            System.out.println("1. Agregar una carta a la coleccion");
-            System.out.println("2. Mostrar el tipo de una carta específica en la coleccion");
-            System.out.println("3. Mostrar el nombre, tipo y cantidad de cada cartas en la coleccion");
-            System.out.println("4. Mostrar el nombre, tipo y cantidad de cada cartas que tiene en su colección, ordenadas por tipo.");
-            System.out.println("5. Mostrar el nombre y tipo de todas las cartas existentes.");
-            System.out.println("6. Mostrar el nombre y tipo de todas las cartas existentes, ordenadas por tipo.");
-            System.out.println("________________________________________________________--");
-            System.out.println("Seleccione una opcion:");
-            int opt = scan.nextInt();
-
-            cardNames = file.ReadName();
-            cardType = file.ReadType();
-
-            if (opt == 1) {
-                for(int i=0; i<cardNames.size();i++){
-                    map.put(cardNames.get(i),cardType.get(i));
-                }
-                while(valid == false){
-                    System.out.println("");
-                    System.out.println("Ingrese el nombre de la carta que desea agregar: ");
-                    String name = scan.nextLine();
-
-                    System.out.println("");
-                    System.out.println("Ingrese el tipo de la carta que desea agregar: ");
-                    type = scan.nextLine();
-                    if(map.containsValue(type)){
-                        map.put(name,type);
-                        iterator = map.keySet().iterator();
-                        while(iterator.hasNext()){
-                            String key = iterator.next();
-                            System.out.println("Nombre Carta: (" + key + ") -> Tipo: (" + map.get(key)+")");
-                        }
-                        System.out.println("\n-Se ha agregado con exito");
-                        valid = true;
-                    }else{
-                        System.out.println("-Lo siento... El tipo que desea agregar no exite en el juego...");
-                        continue;
-                    }
-                }
-            }
+            
         }
 
         else{

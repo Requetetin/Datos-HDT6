@@ -13,11 +13,11 @@ public class Factory{
 	public IMap getType(int option){
 
 		if(option == 1){
-			return new LinkedHashMap();
+			return new LHMap();
 		}else if(option == 2){
-			return new HashMap();
+			return new HMap();
 		}else{
-			return new TreeMap();
+			return new TMap();
 		}
 		
 	}

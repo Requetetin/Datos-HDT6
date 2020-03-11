@@ -6,12 +6,12 @@
 
 import java.util.*;
 
-public class HashMap<K,V> extends AMap<K,V>{
+public class HMap<K,V> extends AMap<K,V>{
 
-	protected HashMap<K,V> map;
+	protected IMap<K,V> map;
 
-	public HashMap(){
-		map = new HashMap<K,V>();
+	public HMap(){
+		map = new HMap<K,V>();
 	}
 
 	public void clear(){
