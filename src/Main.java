@@ -85,6 +85,25 @@ public class Main{
                                     }
                                 }
                             }
+                            if (opt == 5) {
+                                for(int i=0; i<cardNames.size();i++){
+                                    map.put(cardNames.get(i),cardType.get(i));
+                                }
+                                iterator = map.keySet().iterator();
+                                while(iterator.hasNext()){
+                                    String key = iterator.next();
+                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + map.get(key));
+                                }
+                                System.out.println("---------------------------------");
+                            }
+                            if (opt == 6) {
+                                iterator = map.keySet().iterator();
+                                while(iterator.hasNext()){
+                                    String key = iterator.next();
+                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + map.get(key));
+                                }
+                                System.out.println("---------------------------------");
+                            }
                         }
                     }
                 }catch(Exception e){
