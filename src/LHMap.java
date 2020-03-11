@@ -33,4 +33,12 @@ public class LHMap<K,V> extends AMap<K,V>{
 	public int size(){
 		return map.size();
 	}
+
+	public boolean containsValue(Object value){
+		return map.containsValue(value);
+	}
+
+	public Set<K> keySet(){
+		return map.keySet();
+	}
 }

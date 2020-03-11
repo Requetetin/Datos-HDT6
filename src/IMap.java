@@ -61,4 +61,22 @@ interface IMap<K,V>{
 	*
 	*/
 	public int size();
+
+	/*
+	*
+	* @param value
+	* pre: Map is not empty
+	* post: Returns true if value is contained
+	*
+	*/
+	public boolean containsValue(Object value);
+
+	/*
+	*
+	* @param 
+	* pre: Map is not empty
+	* post: Returns a set of keys in this map
+	*
+	*/
+	public Set<K> keySet();	
 }
