@@ -6,7 +6,7 @@
 
 import java.util.*;
 
-interface IMap<K,V>{
+public interface IMap<K,V>{
 
 	/*
 	*
