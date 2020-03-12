@@ -21,7 +21,7 @@ public class Main{
         Map<String, String> map = null;
         fileRead file = new fileRead();
         boolean valid = false;
-        Iterator<String> iterator;
+        Iterator<String> it;
         String type;
         IMap original;
         IMap collection;
@@ -85,18 +85,37 @@ public class Main{
                                     type = scan.nextLine();
                                     if(map.containsValue(type)){
                                         map.put(name,type);
-                                        iterator = map.keySet().iterator();
-                                        while(iterator.hasNext()){
-                                            String key = iterator.next();
+                                        it = map.keySet().iterator();
+                                        while(it.hasNext()){
+                                            String key = it.next();
                                             System.out.println("Nombre Carta: (" + key + ") -> Tipo: (" + map.get(key)+")");
                                         }
-                                        System.out.println("\n-Se ha agregado con exito");
+                                        System.out.println("\n-Se ha agregado con exito.");
                                         valid = true;
                                     }else{
-                                        System.out.println("-Lo siento... El tipo que desea agregar no exite en el juego...");
+                                        System.out.println("El tipo que desea agregar no exite en el juego.");
                                         continue;
                                     }
                                 }
+                            }
+                            if (opt == 5) {
+                                for(int i=0; i<cardNames.size();i++){
+                                    map.put(cardNames.get(i),cardType.get(i));
+                                }
+                                it = map.keySet().iterator();
+                                while(it.hasNext()){
+                                    String key = it.next();
+                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + map.get(key));
+                                }
+                                System.out.println("---------------------------------");
+                            }
+                            if (opt == 6) {
+                                it = map.keySet().iterator();
+                                while(it.hasNext()){
+                                    String key = it.next();
+                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + map.get(key));
+                                }
+                                System.out.println("---------------------------------");
                             }
                         }
                     }
