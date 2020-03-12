@@ -23,6 +23,8 @@ public class Main{
         boolean valid = false;
         Iterator<String> iterator;
         String type;
+        IMap original;
+        IMap collection;
 
         System.out.println("------------------\n|   Bienvenido   |\n------------------");
 
@@ -42,6 +44,16 @@ public class Main{
                     }else if(option == 4){
                         exit = false;
                     }else{
+                        original = fact.getType(option);
+                        collection = fact.getType(option);
+                        cardNames = file.ReadName();
+                        cardType = file.ReadType();
+
+                        for(int i=0; i<cardNames.size();i++){
+                            original.put(cardNames.get(i),cardType.get(i));
+                        }
+
+
                         while(exit){
                             System.out.println("MENU:");
                             System.out.println("________________________________________________________--");
@@ -51,17 +63,18 @@ public class Main{
                             System.out.println("4. Mostrar el nombre, tipo y cantidad de cada cartas que tiene en su colección, ordenadas por tipo.");
                             System.out.println("5. Mostrar el nombre y tipo de todas las cartas existentes.");
                             System.out.println("6. Mostrar el nombre y tipo de todas las cartas existentes, ordenadas por tipo.");
+                            System.out.println("7. Salir");
                             System.out.println("________________________________________________________--");
                             System.out.println("Seleccione una opcion:");
                             int opt = scan.nextInt();
+                            if(opt == 7){
+                                exit = false;
+                            }
 
-                            cardNames = file.ReadName();
-                            cardType = file.ReadType();
+                            
 
                             if (opt == 1) {
-                                for(int i=0; i<cardNames.size();i++){
-                                    map.put(cardNames.get(i),cardType.get(i));
-                                }
+                            
                                 while(valid == false){
                                     System.out.println("");
                                     System.out.println("Ingrese el nombre de la carta que desea agregar: ");

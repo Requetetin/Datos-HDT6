@@ -8,10 +8,10 @@ import java.util.*;
 
 public class HMap<K,V> extends AMap<K,V>{
 
-	protected IMap<K,V> map;
+	protected HashMap<K,V> map;
 
 	public HMap(){
-		map = new HMap<K,V>();
+		map = new HashMap<K,V>();
 	}
 
 	public void clear(){
@@ -26,7 +26,7 @@ public class HMap<K,V> extends AMap<K,V>{
 		return map.put(key, value);
 	}
 
-	public V remove(Object key, Object value){
+	public boolean remove(Object key, Object value){
 		return map.remove(key, value);
 	}
 

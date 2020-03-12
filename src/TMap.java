@@ -8,10 +8,10 @@ import java.util.*;
 
 public class TMap<K,V> extends AMap<K,V>{
 
-	protected IMap<K,V> map;
+	protected TreeMap<K,V> map;
 
 	public TMap(){
-		map = new TMap<K,V>();
+		map = new TreeMap<K,V>();
 	}
 
 	public void clear(){
@@ -26,7 +26,7 @@ public class TMap<K,V> extends AMap<K,V>{
 		return map.put(key, value);
 	}
 
-	public V remove(Object key, Object value){
+	public boolean remove(Object key, Object value){
 		return map.remove(key, value);
 	}
 

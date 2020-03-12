@@ -51,7 +51,7 @@ interface IMap<K,V>{
 	* post: Returns value
 	*
 	*/
-	public V remove(Object key, Object value);
+	public boolean remove(Object key, Object value);
 
 	/*
 	*

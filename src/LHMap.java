@@ -8,10 +8,10 @@ import java.util.*;
 
 public class LHMap<K,V> extends AMap<K,V>{
 
-	protected IMap<K,V> map;
+	protected LinkedHashMap<K,V> map;
 
 	public LHMap(){
-		map = new LHMap<K,V>();
+		map = new LinkedHashMap<K,V>();
 	}
 
 	public void clear(){
@@ -26,7 +26,7 @@ public class LHMap<K,V> extends AMap<K,V>{
 		return map.put(key, value);
 	}
 
-	public V remove(Object key, Object value){
+	public boolean remove(Object key, Object value){
 		return map.remove(key, value);
 	}
 
