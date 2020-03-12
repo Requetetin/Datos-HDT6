@@ -54,6 +54,8 @@ public class Main{
                         }
 
 
+
+
                         while(exit){
                             System.out.println("MENU:");
                             System.out.println("________________________________________________________--");
@@ -67,37 +69,36 @@ public class Main{
                             System.out.println("________________________________________________________--");
                             System.out.println("Seleccione una opcion:");
                             int opt = scan.nextInt();
+
+
                             if(opt == 7){
                                 exit = false;
                             }
 
                             
 
-                            if (opt == 1) {
+                            else if (opt == 1) {
                             
                                 while(valid == false){
                                     System.out.println("");
+                                    scan.nextLine();
                                     System.out.println("Ingrese el nombre de la carta que desea agregar: ");
                                     String name = scan.nextLine();
 
-                                    System.out.println("");
-                                    System.out.println("Ingrese el tipo de la carta que desea agregar: ");
-                                    type = scan.nextLine();
-                                    if(map.containsValue(type)){
-                                        map.put(name,type);
-                                        it = map.keySet().iterator();
-                                        while(it.hasNext()){
-                                            String key = it.next();
-                                            System.out.println("Nombre Carta: (" + key + ") -> Tipo: (" + map.get(key)+")");
-                                        }
-                                        System.out.println("\n-Se ha agregado con exito.");
+                                    try{
+                                        collection.put(name,original.get(name));
+                                        System.out.println("Se ha agregado con exito la carta:\n"+name+" tipo: "+collection.get(name));
                                         valid = true;
-                                    }else{
-                                        System.out.println("El tipo que desea agregar no exite en el juego.");
-                                        continue;
+
+                                    }catch(Exception e){
+                                        System.out.println("La carta ingresada no existe");
                                     }
+                                    
+                                    
                                 }
                             }
+
+                            
                             if (opt == 5) {
                                 for(int i=0; i<cardNames.size();i++){
                                     map.put(cardNames.get(i),cardType.get(i));
