@@ -69,9 +69,12 @@ public class Main{
                             System.out.println("________________________________________________________--");
                             System.out.println("Seleccione una opcion:");
                             int opt = scan.nextInt();
+                            if(option >7 || option <1){
+                                throw new Exception();
+                            }
 
 
-                            if(opt == 7){
+                            else if(opt == 7){
                                 exit = false;
                             }
 
@@ -85,29 +88,33 @@ public class Main{
                                     System.out.println("Ingrese el nombre de la carta que desea agregar: ");
                                     String name = scan.nextLine();
 
-                                    try{
-                                        collection.put(name,original.get(name));
-                                        System.out.println("Se ha agregado con exito la carta:\n"+name+" tipo: "+collection.get(name));
+                                    if(original.get(name) != null){
+                                        collection.put(name, original.get(name));                                        
+                                        System.out.println("Se ha agregado con exito la carta:\n"+name+" tipo: "+collection.get(name)+"\n\n\n");
                                         valid = true;
-
-                                    }catch(Exception e){
+                                    }
+                                    else{
                                         System.out.println("La carta ingresada no existe");
+                                        scan.nextLine();
                                     }
                                     
                                     
+                                    
                                 }
                             }
 
-                            if (opt == 2) {
-                                for(int i=0; i<cardNames.size();i++){
-                                    map.put(cardNames.get(i),cardType.get(i));
-                                }
+                            else if (opt == 2) {
+                                scan.nextLine();
                                 System.out.println("Ingrese la carta que desea consultar: ");
                                 String input = scan.nextLine();
-                                input = scan.next();
-                                System.out.println((map.get(input)));
+                                if(collection.get(input) != null){
+                                    System.out.println("La carta "+input+" es tipo: "+(collection.get(input))+"\n\n\n");
+                                }else{
+                                    System.out.println("La carta ingresada no existe en la coleccion\n\n\n");
+                                }
+                                
                             }
-                            if (opt == 3) {
+                            else if (opt == 3) {
                                 for(int i=0; i<cardNames.size();i++){
                                     map.put(cardNames.get(i),cardType.get(i));
                                 }
@@ -119,7 +126,7 @@ public class Main{
                                 System.out.println("---------------------------------");
                                 System.out.println("Hay: "+ map.size() + " cartas en su coleccion");
                             }
-                            if (opt == 4) {
+                            else if (opt == 4) {
                                 for(int i=0; i<cardNames.size();i++){
                                     map.put(cardNames.get(i),cardType.get(i));
                                 }
@@ -130,7 +137,7 @@ public class Main{
                                 }
                                 System.out.println("Hay: "+map.size() + " cartas en su coleccion");
                             }
-                            if (opt == 5) {
+                            else if (opt == 5) {
                                 for(int i=0; i<cardNames.size();i++){
                                     map.put(cardNames.get(i),cardType.get(i));
                                 }
@@ -141,7 +148,7 @@ public class Main{
                                 }
                                 System.out.println("---------------------------------");
                             }
-                            if (opt == 6) {
+                            else if (opt == 6) {
                                 it = map.keySet().iterator();
                                 while(it.hasNext()){
                                     String key = it.next();
