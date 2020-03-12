@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Collections;
 
 
 public class Main{
@@ -16,6 +17,7 @@ public class Main{
 
 
         Factory fact = new Factory();
+        
         ArrayList<String> cardNames= new ArrayList<String>();
         ArrayList<String> cardType = new ArrayList<String>();
         fileRead file = new fileRead();
@@ -126,11 +128,20 @@ public class Main{
                             }
 
                             else if (opt == 4) {
-                           
+                                ArrayList<String> toOrder = new ArrayList<String>();
                                 it = collection.keySet().iterator();
                                 while(it.hasNext()){
                                     String key = it.next();
-                                    System.out.println("Tipo: (" + key + ") -> Nombre de la carta: (" + collection.get(key)+")");
+                                    String s = "Tipo: "+collection.get(key)+", Nombre: "+key;
+                                    toOrder.add(s);
+                                }
+
+
+                                Collections.sort(toOrder);
+
+
+                                for(int i=0; i<toOrder.size();i++){
+                                    System.out.println(toOrder.get(i));
                                 }
                                 System.out.println("Hay: "+collection.size() + " cartas en su coleccion");
                             }
@@ -145,10 +156,18 @@ public class Main{
                                 System.out.println("---------------------------------");
                             }
                             else if (opt == 6) {
+                                ArrayList<String> unOrdered = new ArrayList<String>();
                                 it = original.keySet().iterator();
                                 while(it.hasNext()){
                                     String key = it.next();
-                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + original.get(key));
+                                    String s = "Tipo: "+original.get(key)+", Nombre: "+key;
+                                    unOrdered.add(s);
+                                }
+
+                                Collections.sort(unOrdered);
+
+                                for(int i=0; i<unOrdered.size();i++){
+                                    System.out.println(unOrdered.get(i));
                                 }
                                 System.out.println("---------------------------------");
                             }
