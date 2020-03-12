@@ -98,6 +98,38 @@ public class Main{
                                     }
                                 }
                             }
+                            if (opt == 2) {
+                                for(int i=0; i<cardNames.size();i++){
+                                    map.put(cardNames.get(i),cardType.get(i));
+                                }
+                                System.out.println("Ingrese la carta que desea consultar: ");
+                                String input = scan.nextLine();
+                                input = scan.next();
+                                System.out.println((map.get(input)));
+                            }
+                            if (opt == 3) {
+                                for(int i=0; i<cardNames.size();i++){
+                                    map.put(cardNames.get(i),cardType.get(i));
+                                }
+                                it = map.keySet().iterator();
+                                while(it.hasNext()){
+                                    String key = it.next();
+                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + map.get(key));
+                                }
+                                System.out.println("---------------------------------");
+                                System.out.println("Hay: "+ map.size() + " cartas en su coleccion");
+                            }
+                            if (opt == 4) {
+                                for(int i=0; i<cardNames.size();i++){
+                                    map.put(cardNames.get(i),cardType.get(i));
+                                }
+                                it = map.keySet().iterator();
+                                while(it.hasNext()){
+                                    String key = it.next();
+                                    System.out.println("Tipo: (" + key + ") -> Nombre de la carta: (" + map.get(key)+")");
+                                }
+                                System.out.println("Hay: "+map.size() + " cartas en su coleccion");
+                            }
                             if (opt == 5) {
                                 for(int i=0; i<cardNames.size();i++){
                                     map.put(cardNames.get(i),cardType.get(i));
