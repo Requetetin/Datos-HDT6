@@ -18,7 +18,6 @@ public class Main{
         Factory fact = new Factory();
         ArrayList<String> cardNames= new ArrayList<String>();
         ArrayList<String> cardType = new ArrayList<String>();
-        Map<String, String> map = null;
         fileRead file = new fileRead();
         boolean valid = false;
         Iterator<String> it;
@@ -55,8 +54,8 @@ public class Main{
 
 
 
-
-                        while(exit){
+                        boolean out = true;
+                        while(out){
                             System.out.println("MENU:");
                             System.out.println("________________________________________________________--");
                             System.out.println("1. Agregar una carta a la coleccion");
@@ -75,13 +74,14 @@ public class Main{
 
 
                             else if(opt == 7){
+                                out = false;
                                 exit = false;
                             }
 
                             
 
                             else if (opt == 1) {
-                            
+                                valid = false;
                                 while(valid == false){
                                     System.out.println("");
                                     scan.nextLine();
@@ -101,6 +101,7 @@ public class Main{
                                     
                                     
                                 }
+                                
                             }
 
                             else if (opt == 2) {
@@ -115,44 +116,39 @@ public class Main{
                                 
                             }
                             else if (opt == 3) {
-                                for(int i=0; i<cardNames.size();i++){
-                                    map.put(cardNames.get(i),cardType.get(i));
-                                }
-                                it = map.keySet().iterator();
+                                it = collection.keySet().iterator();
                                 while(it.hasNext()){
                                     String key = it.next();
-                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + map.get(key));
+                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + collection.get(key));
                                 }
                                 System.out.println("---------------------------------");
-                                System.out.println("Hay: "+ map.size() + " cartas en su coleccion");
+                                System.out.println("Hay: "+ collection.size() + " cartas en su coleccion");
                             }
+
                             else if (opt == 4) {
-                                for(int i=0; i<cardNames.size();i++){
-                                    map.put(cardNames.get(i),cardType.get(i));
-                                }
-                                it = map.keySet().iterator();
+                           
+                                it = collection.keySet().iterator();
                                 while(it.hasNext()){
                                     String key = it.next();
-                                    System.out.println("Tipo: (" + key + ") -> Nombre de la carta: (" + map.get(key)+")");
+                                    System.out.println("Tipo: (" + key + ") -> Nombre de la carta: (" + collection.get(key)+")");
                                 }
-                                System.out.println("Hay: "+map.size() + " cartas en su coleccion");
+                                System.out.println("Hay: "+collection.size() + " cartas en su coleccion");
                             }
+
                             else if (opt == 5) {
-                                for(int i=0; i<cardNames.size();i++){
-                                    map.put(cardNames.get(i),cardType.get(i));
-                                }
-                                it = map.keySet().iterator();
+                                
+                                it = original.keySet().iterator();
                                 while(it.hasNext()){
                                     String key = it.next();
-                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + map.get(key));
+                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + original.get(key));
                                 }
                                 System.out.println("---------------------------------");
                             }
                             else if (opt == 6) {
-                                it = map.keySet().iterator();
+                                it = original.keySet().iterator();
                                 while(it.hasNext()){
                                     String key = it.next();
-                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + map.get(key));
+                                    System.out.println("Nombre de la carta: " + key + " -> Tipo: " + original.get(key));
                                 }
                                 System.out.println("---------------------------------");
                             }
